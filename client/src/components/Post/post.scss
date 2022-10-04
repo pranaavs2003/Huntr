@@ -9,6 +9,14 @@
         height: 227px;
         border-radius: 3px;
         object-fit: cover;
+        cursor: pointer;
+        &:hover{
+            filter: brightness(60%);
+            transition: 0.4s;
+        }
+        &:not(&:hover){
+            transition: 0.4s;
+        }
     }
     .detail__container{
         width: 352px;

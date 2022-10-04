@@ -33,12 +33,19 @@
         }
     }
     .right__container{
-        padding: 0 25px;
+        padding: 0 40px;
         display: flex;
         flex-direction: row;
         gap: 25px;
         align-items: center;
         justify-content: left;
+        .profile__image{
+            height: 40px;
+            width: 40px;
+            border-radius: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
         .share__button{
             padding: 12px 20px;
             cursor: pointer;

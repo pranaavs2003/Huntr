@@ -6,7 +6,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 export default function Post({ postData }) {
   return (
     <div className="post">
-      <img src={postData.imageURL} className="post__image" />
+      <img src={postData.imageURL} className="post__image" alt="post-img" />
       <div className="detail__container">
         <div className="left__container">
           <div className="top__text">{postData.title}</div>

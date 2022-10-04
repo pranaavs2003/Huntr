@@ -19,13 +19,13 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/home",
+    path: "/",
     element: <Home />,
   },
 ]);
 
 function App() {
-  return(
+  return (
     <div className="App">
       <RouterProvider router={router} />
     </div>
