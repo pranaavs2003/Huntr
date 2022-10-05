@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 export const register = (req, res) => {
   const q = "SELECT * FROM user WHERE username = ? OR email = ?";
   try {
-    db.query(q, [req.body.username, req.body.email], (err, data) => {
+    db.query(q, [req.body.username, req.body.email],(err, data)  => {
       if (err) return res.status(500).json(err);
       if (data.length) return res.status(409).json("User already exists!");
 
@@ -39,18 +39,20 @@ export const login = (req, res) => {
         data[0].password
       );
 
-      if (!isPasswordCorrect) res.status(400).json("Wrong username or password!");
-      
-    const token = jwt.sign({ id: data[0].id }, "jwtkey");
-    const { password, ...other } = data[0];
+      if (!isPasswordCorrect)
+        res.status(400).json("Wrong username or password!");
 
-    res.cookie("access_token", token, {
-        httpOnly: true,
-      })
-      .status(200)
-      .json(other);
+      const token = jwt.sign({ id: data[0].id }, "jwtkey");
+      const { password, ...other } = data[0];
+
+      res
+        .cookie("access_token", token, {
+          expiresIn: "1h",
+          httpOnly: true,
+        })
+        .status(200)
+        .json(other);
     });
-      
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -58,10 +60,11 @@ export const login = (req, res) => {
 };
 
 export const logout = (req, res) => {
-  res.clearCookie("access_token", 
-    {
+  res
+    .clearCookie("access_token", {
       sameSite: "none",
-      secure: true 
-    }
-  ).status(200).json("User has been logged out.");
+      secure: true,
+    })
+    .status(200)
+    .json("User has been logged out.");
 };

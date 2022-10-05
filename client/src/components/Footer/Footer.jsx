@@ -2,14 +2,15 @@ import React from "react";
 import "./footer.scss";
 
 export default function Footer() {
-  return( 
+  return (
     <div className="footer">
-        <div className="right__container">
-        © 2022 Dribbble. All rights reserved.
-        </div>
-        <div className="left__container">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Dribbble_Text_Logo_Script.svg/2560px-Dribbble_Text_Logo_Script.svg.png" alt="logo" />
-        </div>
+      <div className="right__container">© 2022 Huntr. All rights reserved.</div>
+      <div className="left__container">
+        <img
+          src="https://res.cloudinary.com/dbzzj25vc/image/upload/v1664872595/DBMS/logo_option_3-_font_i2l0om.png"
+          alt="logo"
+        />
+      </div>
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function Header() {
       />
       <div className="header__container">
         <div className="category__container">
-          <div className="category__item">Animation</div>
+          <div className="category__item">Graphic Design</div>
           <div className="category__item">Illustration</div>
           <div className="category__item">Mobile</div>
           <div className="category__item">Print</div>
@@ -24,7 +24,7 @@ export default function Header() {
         </div>
         <div className="sub__text">
           Millions of designers and agencies around the world showcase their
-          portfolio work on Dribbble - the home to the world’s best design and
+          portfolio work on Huntr - the home to the world’s best design and
           creative professionals.
         </div>
       </div>

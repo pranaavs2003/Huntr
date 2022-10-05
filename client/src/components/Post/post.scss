@@ -18,6 +18,7 @@
             transition: 0.4s;
         }
     }
+
     .detail__container{
         width: 352px;
         display: flex;
@@ -55,6 +56,31 @@
                 .count{
                     font-size: 13px;
                     font-weight: 600;
+                }
+                .like__icon{
+                    cursor: pointer;
+                    &:hover{
+                        transition: 0.3s;
+                        color: rgb(219, 72, 96);
+                    }   
+                    &:not(&:hover){
+                        transition: 0.3s;
+                    }
+                }
+                .view__icon{
+                    &:hover{
+                        transition: 0.3s;
+                        color: rgb(26, 124, 221);
+                    }   
+                    &:not(&:hover){
+                        transition: 0.3s;
+                    }
+                }
+                .like__active{
+                    color: rgb(219, 72, 96);
+                }
+                .view__active{
+                    color: rgb(26, 124, 221);
                 }
             }
         }

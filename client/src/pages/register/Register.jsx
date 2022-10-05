@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./register.scss";
-import Logo from "../../assets/Logo";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import ErrorBoxSmall from "../../assets/errorBoxSmall/ErrorBoxSmall";
 
 export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -26,6 +28,8 @@ export default function Register() {
       console.log(res);
       navigate("/login");
     } catch (err) {
+      setIsError(true);
+      if (err.response.status === 409) setError("User already Exists!");
       console.log(err);
     }
   };
@@ -34,7 +38,13 @@ export default function Register() {
     <div className="register">
       <div className="left__container">
         <div className="logo">
-          <Logo />
+          <Link className="link" to="/">
+            <img
+              src="https://res.cloudinary.com/dbzzj25vc/image/upload/v1664872595/DBMS/logo_option_3-_font_i2l0om.png"
+              alt="logo-img"
+              className="Logo"
+            />
+          </Link>
         </div>
         <div className="text__container">
           <span className="text__line">
@@ -45,7 +55,7 @@ export default function Register() {
       <div className="right__container">
         <div className="login__container">
           {/* <Logo className="logo__image" /> */}
-          <div className="top__text">Sign up to Dribbble</div>
+          <div className="top__text">Sign up to Huntr</div>
           <div className="input__container">
             <label htmlFor="text">Username</label>
             <input
@@ -67,6 +77,7 @@ export default function Register() {
             />
             <span className="forgot__password">Forgot password? </span>
           </div>
+          {isError && <ErrorBoxSmall input={error} />}
           <button onClick={handleSubmit}>Sign up</button>
           <Link to="/login" className="link">
             <span className="new__account">Already have an Account?</span>
