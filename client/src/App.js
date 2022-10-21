@@ -9,6 +9,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Home from "./pages/home/Home";
 import New from "./pages/new/New";
+import Category from "./pages/category/Category";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,31 @@ const router = createBrowserRouter([
   },
   {
     path: "/category/graphicdesign",
-    element: <New />,
+    element: <Category />,
+  },
+  {
+    path: "/category/illustration",
+    element: <Category />,
+  },
+  {
+    path: "/category/mobile",
+    element: <Category />,
+  },
+  {
+    path: "/category/print",
+    element: <Category />,
+  },
+  {
+    path: "/category/productdesign",
+    element: <Category />,
+  },
+  {
+    path: "/category/typography",
+    element: <Category />,
+  },
+  {
+    path: "/category/webdesign",
+    element: <Category />,
   },
 ]);
 

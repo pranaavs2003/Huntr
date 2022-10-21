@@ -1,0 +1,29 @@
+.titleheader{
+    .header__container{
+        font-size: 160px;
+        font-weight: 600;
+        padding: 60px 30px;
+        width: fit-content;
+        height: fit-content;
+        
+        // &:hover{
+        //     transition: 1s;
+        //     color: #f614b8;
+        //     background-image: -webkit-linear-gradient(
+        //       45deg,
+        //       #f614b8 10%,
+        //       #f78ea8 30%,
+        //       #0000ff 50%
+        //     );
+        //     background-clip: text;
+        //     -webkit-background-clip: text;
+        //     text-fill-color: transparent;
+        //     -webkit-text-fill-color: transparent;
+            
+        // }
+        // &:not(&:hover){
+        //     transition: 1s;
+        // }
+      
+    }
+}

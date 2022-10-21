@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./header.scss";
 
 export default function Header() {
@@ -11,13 +12,27 @@ export default function Header() {
       />
       <div className="header__container">
         <div className="category__container">
-          <div className="category__item">Graphic Design</div>
-          <div className="category__item">Illustration</div>
-          <div className="category__item">Mobile</div>
-          <div className="category__item">Print</div>
-          <div className="category__item">Product Design</div>
-          <div className="category__item">Typography</div>
-          <div className="category__item">Web Design</div>
+          <Link className="link" to="/category/graphicdesign">
+            <div className="category__item">Graphic Design</div>
+          </Link>
+          <Link className="link" to="/category/illustration">
+            <div className="category__item">Illustration</div>
+          </Link>
+          <Link className="link" to="/category/mobile">
+            <div className="category__item">Mobile</div>
+          </Link>
+          <Link className="link" to="/category/print">
+            <div className="category__item">Print</div>
+          </Link>
+          <Link className="link" to="/category/productdesign">
+            <div className="category__item">Product Design</div>
+          </Link>
+          <Link className="link" to="/category/typography">
+            <div className="category__item">Typography</div>
+          </Link>
+          <Link className="link" to="/category/webdesign">
+            <div className="category__item">Web Design</div>
+          </Link>
         </div>
         <div className="main__text">
           Explore the world’s leading design portfolios

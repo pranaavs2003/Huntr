@@ -6,6 +6,7 @@ import {
   viewPost,
   getPostCount,
   unlikePost,
+  getPostsByCategory,
 } from "../controllers/post.js";
 
 const router = express.Router();
@@ -16,5 +17,6 @@ router.post("/likepost", likePost);
 router.post("/unlikepost", unlikePost);
 router.post("/viewpost", viewPost);
 router.get("/getpostcount", getPostCount);
+router.get("/getpostsbycategory/:id", getPostsByCategory);
 
 export default router;

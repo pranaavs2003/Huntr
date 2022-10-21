@@ -23,8 +23,8 @@ export const getposts = (req, res) => {
   const q = "SELECT * FROM posts";
 
   db.query(q, (err, data) => {
-    if (err) res.status(500).json(err);
-    res.status(200).json(data);
+    if (err) return res.status(500).json(err);
+    return res.status(200).json(data);
   });
 };
 
@@ -33,8 +33,8 @@ export const likePost = (req, res) => {
     const q = "UPDATE posts SET likecount = likecount + 1 WHERE id = ?";
 
     db.query(q, [req.body.id], (err, data) => {
-      if (err) res.status(500).json(err);
-      res.status(200).json("Post Liked Successfully!");
+      if (err) return res.status(500).json(err);
+      return res.status(200).json("Post Liked Successfully!");
     });
   } catch (err) {
     console.log(err);
@@ -47,8 +47,8 @@ export const unlikePost = (req, res) => {
     const q = "UPDATE posts SET likecount = likecount - 1 WHERE id = ?";
 
     db.query(q, [req.body.id], (err, data) => {
-      if (err) res.status(500).json(err);
-      res.status(200).json("Post Unliked Successfully!");
+      if (err) return res.status(500).json(err);
+      return res.status(200).json("Post Unliked Successfully!");
     });
   } catch (err) {
     console.log(err);
@@ -61,8 +61,8 @@ export const viewPost = (req, res) => {
     const q = "UPDATE posts SET viewcount = viewcount + 1 WHERE id = ?";
 
     db.query(q, [req.body.id], (err, data) => {
-      if (err) res.status(500).json(err);
-      res.status(200).json("Post Viewed Successfully!");
+      if (err) return res.status(500).json(err);
+      return res.status(200).json("Post Viewed Successfully!");
     });
   } catch (err) {
     console.log(err);
@@ -74,8 +74,21 @@ export const getPostCount = (req, res) => {
   try {
     const q = "SELECT count(*) FROM posts;";
     db.query(q, (err, data) => {
-      if (err) res.status(500).json(err);
-      res.status(200).json({ count: data[0]["count(*)"] });
+      if (err) return res.status(500).json(err);
+      return res.status(200).json({ count: data[0]["count(*)"] });
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};
+
+export const getPostsByCategory = (req, res) => {
+  try {
+    const q = "SELECT * FROM posts where category = ?;";
+    db.query(q, [req.params.id], (err, data) => {
+      if (err) return res.status(500).json(err);
+      return res.status(200).json(data);
     });
   } catch (err) {
     console.log(err);
