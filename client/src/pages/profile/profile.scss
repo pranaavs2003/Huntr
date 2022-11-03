@@ -1,0 +1,206 @@
+.profile{
+    background-color: #F9F9F9;
+    height: fit-content;
+    
+    .top__container{
+        width: 100%;
+        height: 40vh;
+        //background-color: lightgreen;
+        .banner__img{
+            height: 100%;
+            width: 100%;
+            object-fit: fill;
+        }
+    }
+
+    .bottom__container{
+        width: 100%;
+        height: fit-content;
+        //background-color: lightcoral;
+        display: flex;
+        flex-direction: row;
+        .left__container{
+            //background-color: aqua;
+            flex: 4;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            .detail__container{
+                -webkit-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.48);
+-moz-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.48);
+box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.48);
+                position: absolute;
+                top: -200px;
+                width: 21vw;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-radius: 2px;
+                padding: 20px;
+                .logo{
+                    margin: 10px 0;
+                    .profile__img{
+                        border-radius: 50%;
+                        height: 110px;
+                        aspect-ratio: 1;
+                    }
+                }
+                .username{
+                    margin: 0 0 10px;
+                    font-size: 25px;
+                    font-weight: 500;
+                }
+                .position{
+                    margin: 0 0 20px;
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: rgb(103, 103, 103);
+                }
+                .location{
+                    margin: 0 0 30px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    color: rgb(103, 103, 103);
+                    gap: 5px;
+                    .location__icon{
+                        font-size: 15px;
+                    }
+                }
+                .button{
+                    width: 80%;
+                    //background-color: aqua;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 30px;
+                    padding: 6px 0;
+                    font-size: 17px;
+                    font-weight: 700;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+                .follow__button{
+                    background-color: black;
+                    color: white;
+                    &:hover{
+                        color: black;
+                        background-color: white;
+                        //border: 1px solid black;
+                        transition: 0.6s;
+                    }
+                    &:not(:hover){
+                        transition: 0.6s;
+                    }
+                }
+                .message__button{
+                    background-color: white;
+                    border: 1px solid black;
+                    &:hover{
+                        background-color: black;
+                    color: white;
+                        transition: 0.6s;
+                    }
+                    &:not(:hover){
+                        transition: 0.6s;
+                    }
+                }
+                .userdata__container{
+                    margin: 20px 0;
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+                    gap: 10px;
+                    .userdata{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        .count{
+                            font-size: 17px;
+                            font-weight: 400;
+                        }
+                    }
+                }
+
+                .links__container{
+                    width: 90%;
+                    margin: 30px 0;
+                    .links__title{
+                        font-size: 14px;
+                        color: rgb(144, 144, 144);
+                        font-weight: 600;
+                    }
+                    .icon__container{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 20px;
+                        .icon{
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .about{
+                    width: 90%;
+                    margin-top: 30px;
+                    .about__title{
+                        font-size: 14px;
+                        color: rgb(141, 141, 141);
+                        font-weight: 600;
+                    }
+                    .about__content{
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+        .right__container{
+            //background-color: aquamarine;
+            height: fit-content;
+            flex: 10;
+            padding: 30px;
+            .text__container{
+                font-size: 16px;
+                font-weight: 500;
+                margin-bottom: 30px;
+                display: flex;
+                flex-direction: row;
+                gap: 25px;
+                color: white;
+                .text__item__active{
+                    background-color: black;
+                    padding: 10px 20px;
+                    border-radius: 25px;
+                    cursor: pointer;
+                }
+                .text__item{
+                    cursor: pointer;
+                    color: black;
+                    border: 1px solid black;
+                    background-color: white;
+                    padding: 10px 20px;
+                    border-radius: 25px;
+                    &:hover{
+                        transition: 0.5s;
+                        background-color: rgb(237, 237, 237);
+                    }
+                }
+            }
+            .post__container{
+                display: flex;
+                flex-direction: row;
+                gap: 25px;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

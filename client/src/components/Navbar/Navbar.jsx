@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
@@ -7,8 +7,26 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 export default function Navbar() {
   const { logout, currentUser } = useContext(AuthContext);
 
+  const [y, setY] = useState(window.scrollY);
+
+  useEffect(() => {
+    window.addEventListener("scroll", (e) => setY(window.pageYOffset));
+
+    return () => {
+      // return a cleanup function to unregister our function since its gonna run multiple times
+      window.removeEventListener("scroll", (e) => console.log("Scrolling"));
+    };
+  }, [y]);
+
   return (
-    <div className="navbar">
+    <div
+      className="navbar"
+      style={{
+        backgroundColor: `rgb(${255 - Math.abs(80 - y) * 0.4 + 50},${
+          255 - Math.abs(80 - y) * 0.4 + 50
+        },${255 - Math.abs(80 - y) * 0.4 + 50},${1 - y / 80})`,
+      }}
+    >
       <div className="left__container">
         <Link className="link" to="/">
           <img
@@ -17,21 +35,29 @@ export default function Navbar() {
             className="logo__img"
           />
         </Link>
-        <span className="nav__item">Inspiration</span>
+        <span className="nav__item" style={{}}>
+          Inspiration
+        </span>
         <span className="nav__item">Discover</span>
-        <span className="nav__item">Hire Designers</span>
+        <span className="nav__item">
+          <Link to="/hire" className="link">
+            Hire Designers
+          </Link>
+        </span>
       </div>
       <div className="right__container">
-        {currentUser && (
-          <img
-            src={
-              currentUser.image ||
-              "https://www.nipponpaint.com.mm/wp-content/uploads/2021/11/1632127421146-1468281_profile-icon-png-transparent-profile-picture-icon-png.jpg"
-            }
-            alt="profile-img"
-            className="profile__image"
-          />
-        )}
+        <Link to="/profile">
+          {currentUser && (
+            <img
+              src={
+                currentUser.image ||
+                "https://res.cloudinary.com/dbzzj25vc/image/upload/v1667412960/DBMS/icon1_kuwb4m.jpg"
+              }
+              alt="profile-img"
+              className="profile__image"
+            />
+          )}
+        </Link>
         <span className="nav__item">
           <Link to="/login" className="link">
             {currentUser ? <ExitToAppIcon onClick={logout} /> : "Sign in"}

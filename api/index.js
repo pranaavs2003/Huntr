@@ -13,6 +13,8 @@ app.use(cookieParser());
 app.use("/api/auth/", authRouter);
 app.use("/api/posts/", postRouter);
 
+setInterval(() => db.query("select 1"), 10000);
+
 app.listen(3001, (req, res) => {
   console.log("Server listening on PORT 3001...");
 });

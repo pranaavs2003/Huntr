@@ -6,10 +6,16 @@ import Navbar from "../../components/Navbar/Navbar";
 import Header from "../../components/Header/Header";
 import Posts from "../../components/Posts/Posts";
 import Footer from "../../components/Footer/Footer";
+import Loading from "../../components/Loading/Loading";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { search } = useLocation();
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 1500);
 
   useEffect(() => {
     const getPosts = async () => {
@@ -24,12 +30,16 @@ export default function Home() {
     getPosts();
   }, [search]);
 
-  return (
-    <div className="home">
-      <Navbar />
-      <Header />
-      <Posts data={posts} />
-      <Footer />
-    </div>
-  );
+  if (loading) {
+    return <Loading />;
+  } else {
+    return (
+      <div className="home">
+        <Navbar />
+        <Header />
+        <Posts data={posts} />
+        <Footer />
+      </div>
+    );
+  }
 }

@@ -10,6 +10,10 @@ import Register from "./pages/register/Register";
 import Home from "./pages/home/Home";
 import New from "./pages/new/New";
 import Category from "./pages/category/Category";
+import Loading from "./components/Loading/Loading";
+import Profile from "./pages/profile/Profile";
+import Hire from "./pages/hire/Hire";
+import PostPage from "./pages/PostPage/PostPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +23,22 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/loading",
+    element: <Loading />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/hire",
+    element: <Hire />,
+  },
+  {
+    path: "/post",
+    element: <PostPage />,
   },
   {
     path: "/",

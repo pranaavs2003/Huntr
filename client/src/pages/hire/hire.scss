@@ -1,0 +1,21 @@
+.hire{
+    display: flex;
+    flex-direction: column;
+    .loader__container{
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bottom__container{
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid lightgrey;
+        .hire__container{
+            width: 80%;
+            //background-color: lightgrey;
+            height: fit-content;
+        }
+    }
+}
