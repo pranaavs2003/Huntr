@@ -2,16 +2,20 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import "./profile.scss";
+//Components
 import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import ProfilePost from "../../components/ProfilePost/ProfilePost";
+import Loading from "../../components/Loading/Loading";
+import FollowContainer from "../../components/FollowContianer/FollowContainer";
+import RequestContainer from "../../components/RequestContainer/RequestContainer";
+//Icons
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import MailIcon from "@mui/icons-material/Mail";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import InterestsIcon from "@mui/icons-material/Interests";
-import Footer from "../../components/Footer/Footer";
-import ProfilePost from "../../components/ProfilePost/ProfilePost";
-import Loading from "../../components/Loading/Loading";
 
 export default function Profile() {
   const [posts, setPosts] = useState([]);
@@ -113,14 +117,45 @@ export default function Profile() {
           </div>
           <div className="right__container">
             <div className="text__container">
-                <div className={(section === "works") ? "text__item__active" : "text__item"} onClick={() => setSection("works")} >Your works</div>
-                <div className={(section === "saved") ? "text__item__active" : "text__item"} onClick={() => setSection("saved")} >Saved</div>
-                <div className={(section === "following") ? "text__item__active" : "text__item"} onClick={() => setSection("following")} >Following</div>
+              <div
+                className={
+                  section === "works" ? "text__item__active" : "text__item"
+                }
+                onClick={() => setSection("works")}
+              >
+                Your works
+              </div>
+              <div
+                className={
+                  section === "saved" ? "text__item__active" : "text__item"
+                }
+                onClick={() => setSection("saved")}
+              >
+                Saved
+              </div>
+              <div
+                className={
+                  section === "following" ? "text__item__active" : "text__item"
+                }
+                onClick={() => setSection("following")}
+              >
+                Following
+              </div>
+              <div
+                className={
+                  section === "requests" ? "text__item__active" : "text__item"
+                }
+                onClick={() => setSection("requests")}
+              >
+                Requests
+              </div>
             </div>
             <div className="post__container">
-              {posts.map((item) => (
-                <ProfilePost postData={item} />
-              ))}
+              {(section === "works" || section === "saved") &&
+                posts.map((item) => <ProfilePost postData={item} />)}
+              {section === "following" &&
+                posts.map((item) => <FollowContainer />)}
+              {section === "requests" && <RequestContainer />}
             </div>
           </div>
         </div>

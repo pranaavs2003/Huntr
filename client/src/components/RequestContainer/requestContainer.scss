@@ -1,0 +1,105 @@
+.requestContainer{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: default;
+    -webkit-box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.28);
+-moz-box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.28);
+box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.28);
+    .top__container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        //background-color: aqua;
+        height: fit-content;
+        .user__container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            .left__container{
+                margin-left: 10px;
+                img{
+                    height: 60px;
+                    width: 60px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+            }
+            .middle__container{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .username{
+                    font-size: 22px;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+                .location{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    color: rgb(103, 103, 103);
+                    gap: 5px;
+                    .location__icon{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+        .right__container{
+
+        }
+    }
+    .bottom__container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 15px;
+        //justify-content: flex-start;
+        .title{
+            font-size: 40px;
+            font-weight: 600;
+            margin-top: 40px;
+        }
+        .title__text{
+            font-size: 24px;
+            font-weight: 600;
+            margin: 20px 0 10px;
+        }
+        .description{
+            font-size: 16px;
+            font-weight: 400;
+            width: 70%;
+            color: rgb(102, 102, 102);
+        }
+        .reference__image{
+            img{
+                height: 200px;
+                
+            }
+        }
+        .right__container{
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            .button{
+                padding: 10px 30px;
+                border-radius: 20px;
+                border: none;
+                font-size: 18px;
+                font-weight: 600;
+                color: white;
+                cursor: pointer;
+            }
+            .accept{
+                background-color: rgb(65, 160, 65);
+            }
+            .reject{
+                background-color: rgb(255, 83, 83);
+            }
+        }
+    }
+}

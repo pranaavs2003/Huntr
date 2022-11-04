@@ -35,10 +35,16 @@ export default function Navbar() {
             className="logo__img"
           />
         </Link>
-        <span className="nav__item" style={{}}>
-          Inspiration
+        <span className="nav__item">
+          <Link to="/inspiration" className="link">
+            Inspiration
+          </Link>
         </span>
-        <span className="nav__item">Discover</span>
+        <span className="nav__item">
+          <Link className="link" to="/discover">
+            Discover
+          </Link>
+        </span>
         <span className="nav__item">
           <Link to="/hire" className="link">
             Hire Designers

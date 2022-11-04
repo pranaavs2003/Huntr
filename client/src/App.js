@@ -14,6 +14,8 @@ import Loading from "./components/Loading/Loading";
 import Profile from "./pages/profile/Profile";
 import Hire from "./pages/hire/Hire";
 import PostPage from "./pages/PostPage/PostPage";
+import Discover from "./pages/discover/Discover";
+import Inspiration from "./pages/inspiration/Inspiration";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
   {
     path: "/hire",
     element: <Hire />,
+  },
+  {
+    path: "/inspiration",
+    element: <Inspiration />,
+  },
+  {
+    path: "/discover",
+    element: <Discover />,
   },
   {
     path: "/post",

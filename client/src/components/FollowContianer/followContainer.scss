@@ -1,0 +1,58 @@
+.followContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 0 10px;
+    border-radius: 10px;
+    width: 480px;
+    cursor: default;
+    -webkit-box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.28);
+-moz-box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.28);
+box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.28);
+    .left__container{
+        margin-left: 10px;
+        img{
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+    .middle__container{
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .username{
+            font-size: 22px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .position{
+            font-size: 14px;
+            font-weight: 300;
+            color: rgb(155, 155, 155);
+            width: 200px;
+        }
+    }
+    .right__container{
+        margin-left: 40px;
+        .button{
+            padding: 10px 0;
+            width: 110px;
+            font-size: 16px;
+            font-weight: 800;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .follow__button__active{
+            border: 1px solid black;
+        }
+        .follow__button{
+            color: white;
+            background-color: black;
+        }
+    }
+}

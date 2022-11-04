@@ -9,7 +9,11 @@
         height: 227px;
         border-radius: 3px;
         object-fit: cover;
-        cursor: pointer;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
         &:hover{
             filter: brightness(60%);
             transition: 0.4s;
