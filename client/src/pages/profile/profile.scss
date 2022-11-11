@@ -1,6 +1,7 @@
 .profile{
     background-color: #F9F9F9;
     height: fit-content;
+    min-height: 150vh;
     
     .top__container{
         width: 100%;
@@ -88,10 +89,11 @@ box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.48);
                 .follow__button{
                     background-color: black;
                     color: white;
+                    border: 1px solid white;
                     &:hover{
                         color: black;
                         background-color: white;
-                        //border: 1px solid black;
+                        border: 1px solid black;
                         transition: 0.6s;
                     }
                     &:not(:hover){
@@ -200,6 +202,7 @@ box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.48);
                 flex-direction: row;
                 gap: 25px;
                 flex-wrap: wrap;
+                margin-bottom: 30vh;
             }
         }
     }

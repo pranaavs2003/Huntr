@@ -31,6 +31,14 @@ const router = createBrowserRouter([
     element: <Loading />,
   },
   {
+    path: "/profile/:username",
+    element: <Profile />,
+  },
+  {
+    path: "/profile/:userid",
+    element: <Profile />,
+  },
+  {
     path: "/profile",
     element: <Profile />,
   },
@@ -47,7 +55,7 @@ const router = createBrowserRouter([
     element: <Discover />,
   },
   {
-    path: "/post",
+    path: "/post/:id",
     element: <PostPage />,
   },
   {

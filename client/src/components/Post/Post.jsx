@@ -45,7 +45,7 @@ export default function Post({ postData }) {
   };
 
   return (
-    <Link className="link" to="/post">
+    <Link className="link" to={"/post/" + postData?.id}>
       <div className="post">
         <img
           src={postData?.image}
@@ -56,7 +56,11 @@ export default function Post({ postData }) {
         <div className="detail__container">
           <div className="left__container">
             <div className="top__text">{postData?.title}</div>
-            <div className="bottom__text">{postData?.creator}</div>
+            <div className="bottom__text">
+              <Link to={"/profile/" + postData?.creator} className="link">
+                {postData?.creator}
+              </Link>
+            </div>
           </div>
           <div className="right__container">
             <div className="button__container">
