@@ -45,48 +45,48 @@ export default function Post({ postData }) {
   };
 
   return (
-    <Link className="link" to={"/post/" + postData?.id}>
-      <div className="post">
+    <div className="post">
+      <Link className="link" to={"/post/" + postData?.id}>
         <img
           src={postData?.image}
           className="post__image"
           alt="post-img"
           onClick={setView}
         />
-        <div className="detail__container">
-          <div className="left__container">
-            <div className="top__text">{postData?.title}</div>
-            <div className="bottom__text">
-              <Link to={"/profile/" + postData?.creator} className="link">
-                {postData?.creator}
-              </Link>
-            </div>
+      </Link>
+      <div className="detail__container">
+        <div className="left__container">
+          <div className="top__text">{postData?.title}</div>
+          <div className="bottom__text">
+            <Link to={"/profile/" + postData?.creator} className="link">
+              {postData?.creator}
+            </Link>
           </div>
-          <div className="right__container">
-            <div className="button__container">
-              <ThumbUpIcon
-                className={
-                  isLike ? "icon like__icon like__active" : "icon like__icon"
-                }
-                onClick={setLike}
-              />
-              <span className="count">
-                {isLike ? postData?.likecount + 1 : postData?.likecount}
-              </span>
-            </div>
-            <div className="button__container">
-              <VisibilityIcon
-                className={
-                  isView ? "icon view__icon view__active" : "icon view__icon"
-                }
-              />
-              <span className="count">
-                {isView ? postData?.viewcount + 1 : postData?.viewcount}
-              </span>
-            </div>
+        </div>
+        <div className="right__container">
+          <div className="button__container">
+            <ThumbUpIcon
+              className={
+                isLike ? "icon like__icon like__active" : "icon like__icon"
+              }
+              onClick={setLike}
+            />
+            <span className="count">
+              {isLike ? postData?.likecount + 1 : postData?.likecount}
+            </span>
+          </div>
+          <div className="button__container">
+            <VisibilityIcon
+              className={
+                isView ? "icon view__icon view__active" : "icon view__icon"
+              }
+            />
+            <span className="count">
+              {isView ? postData?.viewcount + 1 : postData?.viewcount}
+            </span>
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

@@ -25,7 +25,8 @@ export default function Login() {
       navigate("/");
     } catch (err) {
       setIsError(true);
-      if (err.response.status === 404) setError("Invalid Email/Password!");
+      if (err.response.status === 404 || err.response.status === 400)
+        setError("Invalid Email/Password!");
       console.log(err);
     }
   };

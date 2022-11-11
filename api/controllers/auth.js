@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 export const register = (req, res) => {
   const q = "SELECT * FROM user WHERE username = ? OR email = ?";
   try {
-    db.query(q, [req.body.username, req.body.email],(err, data)  => {
+    db.query(q, [req.body.username, req.body.email], (err, data) => {
       if (err) return res.status(500).json(err);
       if (data.length) return res.status(409).json("User already exists!");
 
@@ -40,12 +40,12 @@ export const login = (req, res) => {
       );
 
       if (!isPasswordCorrect)
-        res.status(400).json("Wrong username or password!");
+        return res.status(400).json("Wrong username or password!");
 
       const token = jwt.sign({ id: data[0].id }, "jwtkey");
       const { password, ...other } = data[0];
 
-      res
+      return res
         .cookie("access_token", token, {
           expiresIn: "1h",
           httpOnly: true,
@@ -55,7 +55,7 @@ export const login = (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 };
 

@@ -47,6 +47,10 @@ const router = createBrowserRouter([
     element: <Hire />,
   },
   {
+    path: "/hire/:username",
+    element: <Hire />,
+  },
+  {
     path: "/inspiration",
     element: <Inspiration />,
   },

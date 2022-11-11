@@ -16,10 +16,20 @@ export default function PostPage() {
   const [loading, setLoading] = useState(true);
   const [post, setPost] = useState(null);
   const [user, setUser] = useState(null);
+  const [isLike, setLike] = useState(false);
+  const [isSave, setSave] = useState(false);
 
   setTimeout(() => {
     setLoading(false);
   }, 500);
+
+  const savePost = () => {
+    setSave(!isSave);
+  };
+
+  const likePost = () => {
+    setLike(!isLike);
+  };
 
   useEffect(() => {
     const getPosts = async () => {
@@ -28,8 +38,12 @@ export default function PostPage() {
           "http://localhost:3001/api/posts/getpost/" + location.id
         );
         setPost(postData.data[0]);
+        console.log(
+          "http://localhost:3001/api/user/getuseruname/" +
+            postData.data[0].creator
+        );
         const userData = await axios.get(
-          "http://localhost:3001/api/user/getuseruid/" +
+          "http://localhost:3001/api/user/getuseruname/" +
             postData.data[0].creator
         );
         setUser(userData.data[0]);
@@ -40,26 +54,6 @@ export default function PostPage() {
     getPosts();
     console.log(post);
   }, []);
-
-  // const post = {
-  //   id: 2,
-  //   title: "University of Chicago Booth Magazine",
-  //   creator: "Sam Peet",
-  //   image:
-  //     "https://mir-s3-cdn-cf.behance.net/project_modules/fs/3fba83127360505.614084404e211.jpg",
-  //   likecount: 3,
-  //   viewcount: 6,
-  //   category: "graphicdesign",
-  // };
-
-  // const user = {
-  //   id: 12,
-  //   username: "test",
-  //   email: "test@xyz.com",
-  //   password: "$2a$10$KQpUnkF2pYgNn/a0jQ7xAO6F0QvZBr9dAnIwdGIG7EjEDsX/pV.XC",
-  //   image:
-  //     "https://mir-s3-cdn-cf.behance.net/user/138/27ff8d42861705.6266a197a3740.png",
-  // };
 
   if (loading) {
     return <Loading />;
@@ -115,13 +109,21 @@ export default function PostPage() {
                   </Link>
                 </div>
                 <div className="sidebar__item">
-                  <FavoriteIcon className="icon" />
+                  <FavoriteIcon
+                    className={isLike ? "icon favorite__active" : "icon"}
+                    onClick={() => likePost()}
+                  />
                 </div>
                 <div className="sidebar__item">
-                  <BookmarkIcon className="icon" />
+                  <Link className="link" to={"/profile/" + user?.username}>
+                    <AddIcon className="icon" />
+                  </Link>
                 </div>
                 <div className="sidebar__item">
-                  <AddIcon className="icon" />
+                  <BookmarkIcon
+                    className={isSave ? "icon save__active" : "icon"}
+                    onClick={() => savePost()}
+                  />
                 </div>
               </div>
             </div>
