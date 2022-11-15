@@ -1,0 +1,48 @@
+.hireform{
+    height: fit-content;
+    .form{
+        border-top: 1px solid lightgrey;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .form__container{
+            margin-top: 40px;
+            width: 60%;
+            .form__item{
+                margin-bottom: 30px;
+                .label{
+                    font-size: 25px;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                }
+                .input__box{
+                    width: 50%;
+                    padding: 8px 10px;
+                    border: 1px solid lightgray;
+                    border-radius: 5px;
+                    font-size: 20px;
+                    color: rgb(59, 59, 59);
+                    font-weight: 500;
+                }
+            }
+            .submit__button{
+                font-size: 20px;
+                font-weight: 600;
+                padding: 10px 20px;
+                color: black;
+                border: 2px solid black;
+                border-radius: 5px;
+                background-color: white;
+                cursor: pointer;
+                &:hover{
+                    background-color: black;
+                    color: white;
+                    transition: 0.4s;
+                }
+                &:not(:hover){
+                    transition: 0.4s;
+                }
+            }
+        }
+    }
+}

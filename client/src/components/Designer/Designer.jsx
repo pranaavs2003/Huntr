@@ -40,7 +40,11 @@ export default function Designer({ data }) {
           <Link className="link" to={"/profile/" + data?.username}>
             <button className="view__button">View Profile</button>
           </Link>
-          <button className="save__button">Hire</button>
+          <Link className="link" to={"/hire/" + data?.username}>
+            <button button className="save__button">
+              Hire
+            </button>
+          </Link>
         </div>
       </div>
       <div className="middle__container">

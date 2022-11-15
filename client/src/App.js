@@ -16,6 +16,8 @@ import Hire from "./pages/hire/Hire";
 import PostPage from "./pages/PostPage/PostPage";
 import Discover from "./pages/discover/Discover";
 import Inspiration from "./pages/inspiration/Inspiration";
+import UserForm from "./pages/userForm/UserForm";
+import HireForm from "./pages/hireForm/HireForm";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +50,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/hire/:username",
-    element: <Hire />,
+    element: <HireForm />,
   },
   {
     path: "/inspiration",
@@ -65,6 +67,14 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/userform",
+    element: <UserForm />,
+  },
+  {
+    path: "/hireform",
+    element: <HireForm />,
   },
   {
     path: "/new",
