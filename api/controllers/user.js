@@ -55,11 +55,29 @@ export const getfollowers = (req, res) => {
 };
 
 export const getrequests = (req, res) => {
-  const q = `SELECT * FROM request WHERE userid='${req.params.userid}'`;
+  const q = `SELECT * FROM request WHERE userid='${req.params.userid}' AND status=0`;
 
   db.query(q, (err, data) => {
     if (err) return res.status(500).json(err);
     return res.status(200).json(data);
+  });
+};
+
+export const acceptRequest = (req, res) => {
+  const q = `UPDATE request SET status=1 WHERE requestid='${req.params.requestid}' AND status=0`;
+
+  db.query(q, (err, data) => {
+    if (err) return res.status(500).json(err);
+    return res.status(200).json("Request Accepted Successfully!");
+  });
+};
+
+export const rejectRequest = (req, res) => {
+  const q = `UPDATE request SET status=-1 WHERE requestid='${req.params.requestid}' AND status=0`;
+
+  db.query(q, (err, data) => {
+    if (err) return res.status(500).json(err);
+    return res.status(200).json("Request Rejected Successfully!");
   });
 };
 
@@ -117,5 +135,24 @@ export const unfollow = (req, res) => {
         }
       });
     }
+  });
+};
+
+export const postUserdata = (req, res) => {
+  const q =
+    "INSERT INTO userdata(`userid`, `username`, `jobrole`, `country`, `about`, `instagramlink`, `pinterestlink`, `behencelink`) VALUES(?);";
+  const data = [
+    req.body.userid,
+    req.body.username,
+    req.body.jobrole,
+    req.body.country,
+    req.body.about,
+    req.body.instagramlink,
+    req.body.pinterestlink,
+    req.body.behencelink,
+  ];
+  db.query(q, [data], (err, data) => {
+    if (err) return res.status(500).json(err);
+    return res.status(200).json("User Data saved Successfully!");
   });
 };

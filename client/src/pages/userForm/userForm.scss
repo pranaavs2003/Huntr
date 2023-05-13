@@ -1,3 +1,69 @@
 .userform{
-    
+    height: fit-content;
+    .form{
+        border-top: 1px solid lightgrey;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .form__container{
+            margin-top: 40px;
+            width: 60%;
+            .form__item{
+                margin-bottom: 30px;
+                .label{
+                    font-size: 25px;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                }
+                .input__box{
+                    width: 50%;
+                    padding: 8px 10px;
+                    border: 1px solid lightgray;
+                    border-radius: 5px;
+                    font-size: 20px;
+                    color: rgb(59, 59, 59);
+                    font-weight: 500;
+                }
+            }
+            .button__container{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .button{
+                    font-size: 20px;
+                    font-weight: 600;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                .skip__button{
+                    padding: 10px 25px;
+                    color: black;
+                    border: 2px solid black;
+                    background-color: white;
+                    &:hover{
+                        background-color: black;
+                        color: white;
+                        transition: 0.4s;
+                    }
+                    &:not(:hover){
+                        transition: 0.4s;
+                    }
+                }
+                .submit__button{
+                    color: rgb(255, 255, 255);
+                    border: 2px solid black;
+                    background-color: rgb(0, 0, 0);
+                    &:hover{
+                        background-color: rgb(255, 255, 255);
+                        color: rgb(0, 0, 0);
+                        transition: 0.4s;
+                    }
+                    &:not(:hover){
+                        transition: 0.4s;
+                    }
+                }
+            } 
+        }
+    }
 }

@@ -37,10 +37,6 @@ const router = createBrowserRouter([
     element: <Profile />,
   },
   {
-    path: "/profile/:userid",
-    element: <Profile />,
-  },
-  {
     path: "/profile",
     element: <Profile />,
   },
@@ -69,7 +65,7 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/userform",
+    path: "/userform/:username",
     element: <UserForm />,
   },
   {

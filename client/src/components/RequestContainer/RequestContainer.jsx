@@ -9,12 +9,31 @@ export default function RequestContainer({ data }) {
   useEffect(() => {
     const getUser = async () => {
       const res = await axios.get(
-        "http://localhost:3001/api/user/getuser/" + data.userid
+        "http://localhost:3001/api/user/getuser/" + data.hirerid
       );
       setUser(res.data[0]);
     };
     getUser();
   }, []);
+
+  const acceptRequest = async () => {
+    try {
+      await axios.get(
+        "http://localhost:3001/api/user/acceptrequest/" + data.requestid
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const rejectRequest = async () => {
+    try {
+      await axios.get(
+        "http://localhost:3001/api/user/rejectrequest/" + data.requestid
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="requestContainer">
@@ -43,8 +62,12 @@ export default function RequestContainer({ data }) {
               <img src={data?.refimage} alt="ref-img" />
             </div>
             <div className="right__container">
-              <button className="accept button">Accept</button>
-              <button className="reject button">Reject</button>
+              <button className="accept button" onClick={() => acceptRequest()}>
+                Accept
+              </button>
+              <button className="reject button" onClick={() => rejectRequest()}>
+                Reject
+              </button>
             </div>
           </div>
         </>

@@ -9,6 +9,9 @@ import {
   getfollowers,
   isFollowing,
   getdesignerdetails,
+  postUserdata,
+  acceptRequest,
+  rejectRequest,
 } from "../controllers/user.js";
 
 const router = express.Router();
@@ -22,6 +25,9 @@ router.get("/getdesignerdetails", getdesignerdetails);
 router.post("/follow", follow);
 router.post("/unfollow", unfollow);
 router.post("/isfollowing", isFollowing);
+router.post("/postuserdata", postUserdata);
+router.get("/acceptrequest/:requestid", acceptRequest);
+router.get("/rejectrequest/:requestid", rejectRequest);
 //router.get("/getuserdata/:userid", getuserdata);
 
 export default router;
